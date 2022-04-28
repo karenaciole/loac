@@ -66,7 +66,7 @@ always_comb
     sirene <= 0; 
 
 
-// QUESTÃO 2 - AGÊNCIA BANCÁRIA (exp. booleanas)
+// QUESTÃO 2 - AGÊNCIA BANCÁRIA 
 
 //input 
 logic cofre; logic relogio_expediente; logic interruptor_gerente;
