@@ -1,4 +1,6 @@
-// Exercício 1: Registrador de 4 bits 
+
+// Karen Anne Aciole Alves
+// Questão 1 - Registrador de 4 bits 
 
 parameter divide_by=100000000;  // divisor do clock de referência
 // A frequencia do clock de referencia é 50 MHz.
@@ -53,19 +55,19 @@ module top(input  logic clk_2,
   parameter NUM_8 = 'h7f;
   parameter NUM_9 = 'h6f;
 
-  //input 
   logic reset, input_serial, select_input;
   logic [NBITS_REG-1:0] input_paralelo; 
 
-  always_comb reset <= SWI[0];
-  always_comb input_serial <= SWI[1];
-  always_comb select_input <= SWI[2]; // seleciona a entrada (serial ou paralela) 
-  always_comb input_paralelo <= SWI[7:4];
+  always_comb begin 
+    reset <= SWI[0];
+    input_serial <= SWI[1];
+    select_input <= SWI[2]; // seleciona a entrada (serial ou paralela) 
+    input_paralelo <= SWI[7:4];
+    end
   
-  //output
   logic [NBITS_REG-1:0] registrador; 
 
-  always_comb LED <= registrador; 
+  always_comb LED[7:4] <= registrador; 
   
   always_comb begin 
     case (registrador) 
@@ -81,8 +83,7 @@ module top(input  logic clk_2,
       default: SEG <= NUM_0;
     endcase
   end
-
-  // funcionamento 
+  
   always_ff @(posedge clk_2) begin
     if (reset)
       registrador <= RESET_REG;
