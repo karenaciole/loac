@@ -1,4 +1,3 @@
-
 // Karen Anne Aciole Alves
 // Questão 1 - Registrador de 4 bits 
 
@@ -54,6 +53,12 @@ module top(input  logic clk_2,
   parameter NUM_7 = 'h7;
   parameter NUM_8 = 'h7f;
   parameter NUM_9 = 'h6f;
+  parameter LETRA_A = 'h77;
+  parameter LETRA_B = 'h7c;
+  parameter LETRA_C = 'h39;
+  parameter LETRA_D = 'h5e;
+  parameter LETRA_E = 'h79;
+  parameter LETRA_F = 'h71;
 
   logic reset, input_serial, select_input;
   logic [NBITS_REG-1:0] input_paralelo; 
@@ -80,6 +85,12 @@ module top(input  logic clk_2,
       7: SEG <= NUM_7;
       8: SEG <= NUM_8;
       9: SEG <= NUM_9;
+      10: SEG <= LETRA_A;
+      11: SEG <= LETRA_B;
+      12: SEG <= LETRA_C;
+      13: SEG <= LETRA_D;
+      14: SEG <= LETRA_E;
+      15: SEG <= LETRA_F; 
       default: SEG <= NUM_0;
     endcase
   end
