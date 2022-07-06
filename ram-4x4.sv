@@ -76,4 +76,3 @@
     LED[1] <= wr_en;
     LED[7:4] <= rdata; 
   end
-
