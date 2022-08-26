@@ -34,37 +34,37 @@ logic[NBITS_CONTADOR-1: 0] count;
 always_comb LED <= count; 
 
 always_comb begin 
-case (count) 
-1: SEG <= NUM_1;
-2: SEG <= NUM_2;
-3: SEG <= NUM_3;
-4: SEG <= NUM_4;
-5: SEG <= NUM_5;
-6: SEG <= NUM_6;
-7: SEG <= NUM_7;
-8: SEG <= NUM_8;
-9: SEG <= NUM_9;
-10: SEG <= LETRA_A;
-11: SEG <= LETRA_b;
-12: SEG <= LETRA_C;
-13: SEG <= LETRA_d;
-14: SEG <= LETRA_E;
-15: SEG <= LETRA_F;
-default: SEG <= NUM_0;
-endcase
+  case (count) 
+    1: SEG <= NUM_1;
+    2: SEG <= NUM_2;
+    3: SEG <= NUM_3;
+    4: SEG <= NUM_4;
+    5: SEG <= NUM_5;
+    6: SEG <= NUM_6;
+    7: SEG <= NUM_7;
+    8: SEG <= NUM_8;
+    9: SEG <= NUM_9;
+    10: SEG <= LETRA_A;
+    11: SEG <= LETRA_b;
+    12: SEG <= LETRA_C;
+    13: SEG <= LETRA_d;
+    14: SEG <= LETRA_E;
+    15: SEG <= LETRA_F;
+    default: SEG <= NUM_0;
+  endcase
 end
 
 // funcionamento 
 always_ff @(posedge clk_2) begin
-if (reset)
-count <= RESET_CONTADOR; 
-else begin 
-if (select_count)
-count <= count - 1; 
-else 
-count <= count + 1; 
-end 
-end
+  if (reset)
+    count <= RESET_CONTADOR; 
+   else begin 
+    if (select_count)
+      count <= count - 1; 
+    else 
+      count <= count + 1; 
+      end 
+  end
 
 
 endmodule
